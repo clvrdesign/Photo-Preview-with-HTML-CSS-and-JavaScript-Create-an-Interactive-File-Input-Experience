@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Photo Preview</title>
+</head>
+<body>
+    <div class="container">
+        <div class="imgBox hide">
+            <img src="" class="imgPrev">
+        </div>
+        
+        <label for="photo">
+            <em>Choose Photo</em>
+        </label>
+        <input type="file" class="hide photo" id="photo">
+
+    </div>
+
+
+    <script>
+        let imgBoxPrev = document.querySelector('.imgBox');
+        let imgPrev = document.querySelector('.imgPrev');
+        let inputFile = document.querySelector('.photo');
+
+
+        inputFile.addEventListener('change', ()=>{
+            imgPrev.src = URL.createObjectURL(inputFile.files[0]);
+            imgBoxPrev.classList.remove('hide');
+        })
+
+    </script>
+</body>
+</html>
